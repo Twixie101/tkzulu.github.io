@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-labelledby="title desc">
+  <title id="title">The Knowledge Bank logo</title>
+  <desc id="desc">A simple, modern logo: stylized open book icon with "The Knowledge Bank" wordmark using deep red, off-white and dark gray.</desc>
+
+  <!-- Background (transparent) -->
+  <!-- Book icon -->
+  <g transform="translate(16,10)">
+    <!-- left cover -->
+    <rect x="0" y="6" width="48" height="72" rx="6" fill="#8B0000" />
+    <!-- pages (stack) -->
+    <path d="M48 12c18 0 32 6 44 12v42c-12 6-26 12-44 12V12z" fill="#F5F5F5" />
+    <!-- page separators -->
+    <path d="M56 24c12 6 26 10 40 14" stroke="#e6e6e6" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.9" />
+    <path d="M56 38c12 6 26 10 40 14" stroke="#e6e6e6" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7" />
+    <!-- bookmark -->
+    <polygon points="8,12 20,12 14,26" fill="#fff3f3" opacity="0.95" />
+    <!-- subtle spine shadow -->
+    <rect x="0" y="6" width="6" height="72" rx="3" fill="#6b0000" opacity="0.25" />
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(92,48)">
+    <text x="0" y="-6" font-family="Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" font-weight="700" font-size="22" fill="#222">The</text>
+    <text x="38" y="-6" font-family="Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" font-weight="700" font-size="22" fill="#222">Knowledge</text>
+    <text x="260" y="-6" font-family="Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" font-weight="700" font-size="22" fill="#8B0000">Bank</text>
+
+    <text x="0" y="20" font-family="Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" font-weight="400" font-size="12" fill="#666">E‑library for the Zambian secondary syllabus</text>
+  </g>
+
+  <!-- Accessibility: invisible box for consistent sizing -->
+  <rect x="0" y="0" width="420" height="120" fill="transparent" />
+</svg>

@@ -1,0 +1,258 @@
+/*
+  style.css
+  Clean, modern, mobile-first styles for the portfolio.
+  Edit variables below to change colors, fonts, and spacing.
+*/
+
+:root {
+  --color-deep-red: #8B0000; /* primary accent */
+  --color-off-white: #F5F5F5; /* page background */
+  --color-dark: #222; /* text / dark surfaces */
+  --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --max-width: 1100px;
+  --radius: 10px;
+}
+
+/* -----------------------------
+   Reset & base
+   ----------------------------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-dark);
+  background: var(--color-off-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* -----------------------------
+   Header / Navigation
+   ----------------------------- */
+.site-header {
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(6px);
+}
+
+.header-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav a {
+  color: var(--color-dark);
+  text-decoration: none;
+  padding: .4rem .6rem;
+  border-radius: 6px;
+}
+
+.nav a:hover { background: rgba(0,0,0,.05); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.25rem;
+}
+
+/* -----------------------------
+   Hero
+   ----------------------------- */
+.hero {
+  padding: 3.5rem 0;
+  background: linear-gradient(180deg, rgba(139,0,0,0.95), rgba(139,0,0,0.85));
+  color: var(--color-off-white);
+}
+
+.hero-inner {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.hero-copy { flex: 1; min-width: 0; }
+.hero-title { font-size: 2.1rem; margin: 0 0 .5rem; font-weight: 700; }
+.hero-tagline { opacity: .95; margin: 0 0 1rem; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-cta { background: var(--color-off-white); color: var(--color-deep-red); }
+.btn-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+
+/* Hero-specific outline (white on dark hero background) */
+.hero .btn-outline {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,.18);
+  color: var(--color-off-white);
+}
+
+.hero-art { width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; }
+.hero-placeholder { width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; color: var(--color-off-white); font-weight: 600; }
+/* Ensure any image placed inside the circular placeholder fills and is cropped to the circle */
+.hero-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+
+/* Make sure hero artwork sits above copy on small screens */
+.hero-art { position: relative; z-index: 2; }
+
+/* -----------------------------
+   Sections
+   ----------------------------- */
+.section-inner { padding: 3.5rem 0; }
+
+.about-grid { display: grid; grid-template-columns: 180px 1fr; gap: 1.25rem; align-items: center; }
+.about-photo img { width: 180px; height: 180px; object-fit: cover; border-radius: 12px; display: block; }
+.about-photo-fallback { display: none; width: 180px; height: 180px; border-radius: 12px; background: #ddd; align-items: center; justify-content: center; color: #666; }
+.lead { font-weight: 600; }
+
+/* Skill chips */
+.skills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+.skill { background: var(--color-deep-red); color: var(--color-off-white); padding: .35rem .6rem; border-radius: 999px; font-weight: 600; font-size: .9rem; }
+
+/* -----------------------------
+   Projects
+   ----------------------------- */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+
+.project-card {
+  background: var(--color-off-white);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(34,34,34,.06);
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(34,34,34,.12); }
+.project-image { width: 100%; height: 160px; object-fit: cover; }
+.project-image.logo { object-fit: contain; background: transparent; padding: 0; height: 160px; }
+.project-body { padding: 1rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
+.project-actions { margin-top: auto; display: flex; gap: .5rem; }
+
+/* Global outline used in projects and neutral contexts */
+.btn-outline { border: 2px solid var(--color-deep-red); color: var(--color-deep-red); background: transparent; }
+.btn-outline:hover { background: var(--color-deep-red); color: var(--color-off-white); }
+
+/* -----------------------------
+   Contact
+   ----------------------------- */
+.contact-grid { display: grid; grid-template-columns: 1fr 260px; gap: 1.25rem; }
+.contact-form { display: flex; flex-direction: column; gap: .6rem; }
+.contact-form input,
+.contact-form textarea { padding: .6rem; border-radius: 8px; border: 1px solid #ddd; }
+.form-feedback { margin-top: .5rem; color: green; }
+.contact-aside { background: #fff; padding: 1rem; border-radius: 8px; border: 1px solid #eee; }
+.social-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+.social-list a { text-decoration: none; color: var(--color-deep-red); }
+
+/* -----------------------------
+   Footer
+   ----------------------------- */
+.site-footer { padding: 2rem 0; border-top: 1px solid #eee; margin-top: 2rem; background: transparent; }
+.footer-inner { display: flex; justify-content: center; }
+
+/* -----------------------------
+   Responsive adjustments
+   ----------------------------- */
+@media (max-width: 800px) {
+  .hero-inner { flex-direction: column; align-items: flex-start; }
+  .hero-art { width: 140px; height: 140px; }
+  .hero-placeholder { width: 140px; height: 140px; }
+  /* Stack about section earlier to avoid overlap on small screens */
+  .about-grid { grid-template-columns: 1fr; gap: 1rem; align-items: start; }
+  .about-photo { justify-self: center; width: 140px; }
+  .about-photo img { width: 140px; height: 140px; }
+  .hero-copy { padding-bottom: 0.5rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+
+  .nav {
+    position: fixed;
+    top: 64px;
+    right: 12px;
+    background: var(--color-off-white);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    flex-direction: column;
+    display: none;
+  }
+
+  .nav.active { display: flex; }
+  .nav-toggle { display: block; }
+}
+
+/* Make project images slightly smaller on narrow screens */
+@media (max-width: 480px) {
+  .project-image,
+  .project-image.logo { height: 120px; }
+}
+
+/* On very small screens, stack the About section so the photo sits above the text
+   and cannot overlap the copy. Also ensure images don't overflow. */
+@media (max-width: 420px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .about-photo {
+    justify-self: center; /* center the image */
+    width: 140px;
+  }
+
+  .about-photo img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .about-copy { text-align: center; }
+
+  /* Ensure hero image and about image render above other content when needed */
+  .hero-art, .about-photo { position: relative; z-index: 1; }
+}
+
+/* Utility */
+html { scroll-behavior: smooth; } /* smooth scroll for nav links */
+
+/* Small print: update colors and fonts by editing :root variables */
